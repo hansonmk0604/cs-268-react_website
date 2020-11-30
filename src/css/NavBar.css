@@ -1,0 +1,28 @@
+#navBar
+{
+	font-family:Times New Roman, Serif;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	background-color:#555555;
+	position: sticky;
+	top: 0;
+	width: 100%;
+}
+
+#navBar li a
+{
+	float:left;
+	border-right: 1px solid #000;
+	display:block;
+	color:white;
+	text-align:center;
+	padding:15px 15px 15px 15px;
+	text-decoration:none;
+}
+
+#navBar a:hover
+{
+	background-color: #111111;
+}
