@@ -22,7 +22,7 @@ const NavBar = (props) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">Home</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -37,9 +37,6 @@ const NavBar = (props) => {
             </NavItem>
             <NavItem>
                 <NavLink href = "/contact">Contact</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
             </NavItem>
             {/*<UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -60,10 +57,6 @@ const NavBar = (props) => {
             </UncontrolledDropdown>*/}
             <NavbarText>Simple Text</NavbarText>
           </Nav>
-          <NavItem>
-              {/* For this to work, we can style it so 'list-style-type = none' */}
-            <NavLink href = "/">Home</NavLink>
-          </NavItem>
         </Collapse>
       </Navbar>
     </div>

@@ -1,0 +1,22 @@
+.container
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2.5vh;
+}
+
+.aboutHeader
+{
+    font-size: 4vw;
+    text-align: center;
+}
+
+.header
+{
+    font-size: 3vw;
+}
+
+.nameHeader
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2vw;
+}
