@@ -10,6 +10,8 @@ import {
   Col,
 } from "reactstrap";
 
+{/* Dont forget about certificates!*/}
+
 const Signup = (props) => {
   return (
     <Container>

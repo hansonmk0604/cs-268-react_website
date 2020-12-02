@@ -55,7 +55,6 @@ const NavBar = (props) => {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>*/}
-            <NavbarText>Simple Text</NavbarText>
           </Nav>
         </Collapse>
       </Navbar>

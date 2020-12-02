@@ -12,7 +12,7 @@ import Error from "./components/Error";
 function App()
 {
   return (
-    <main>
+    <div>
       <Switch>
         <Route path = "/" component = {Home} exact />
         <Route path = "/login" component = {Login} />
@@ -21,7 +21,7 @@ function App()
         <Route path = "/about" component = {About} />
         <Route component = {Error} />
       </Switch>
-    </main>
+    </div>
   )
 }
 

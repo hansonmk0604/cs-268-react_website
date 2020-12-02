@@ -1,22 +1,27 @@
-.container
+h1
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 2.5vh;
+    font-size: 4vw;
+    text-align: center;
+    padding-bottom: 3vh;
 }
 
-.aboutHeader
+h2
 {
-    font-size: 4vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3vw;
+    text-align: center;
+    padding-bottom: 1vh;
+}
+
+.aboutUsCol, .creatorsCol
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.4vw;
     text-align: center;
 }
 
-.header
+.suliImg, .mitchImg
 {
-    font-size: 3vw;
-}
-
-.nameHeader
-{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2vw;
+    width: 50%;
 }

@@ -1,39 +1,41 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { 
+    Container, 
+    Row, 
+    Col 
+} from 'reactstrap';
 
 import "../css/About.css";
-
-/* What needs to be added: CSS with specific colors and font sizes, images of Suli and I, and changing of column spacing.*/
+import sullivan_img from "../imgs/sullivan_img.JPG";
+import mitchell_img from "../imgs/mitchell_img.JPG";
 
 const About = (props) => {
   return (
     <Container className = "container">
-        <Row className = "aboutHeader">
-            {/* This needs to be centered via style or something else */}
-            <Col>{<u><b>About This Site*tm</b></u>}</Col>
-        </Row>
-        <Row xs = "2">
-            {/* Need to have the column below span 2 columns, or just create another row 
-            Also, make it so the columns are closer together */}
-            <Col className = "header" xs = "1">{<b>Creators:</b>}</Col>
-        <Col>{<img src = "/imgs/sullivan_img.JPG" alt = "Sullivan Prellwitz" />}</Col>
-            <Col className = "nameHeader">Sullivan Prellwitz</Col>
+        <Row>
+            <Col><h1><b>About This Site</b></h1></Col>
         </Row>
         <Row>
-            <Col>INFORMATION ABOUT SULI HERE</Col>
-        </Row>
-        <Row xs = "2">
-            <Col>{<img src = "/imgs/mitchell_img.JPG" alt = "Mitchell Hanson" />}</Col>
-            <Col className = "nameHeader">Mitchell Hanson</Col>
+            <Col className = "aboutUsCol" xs="6">
+                <h2><u>About Us</u></h2>
+            </Col>
+            <Col className = "creatorsCol" xs="6">
+                <h2><u>Who Are We?</u></h2>
+            </Col>
         </Row>
         <Row>
-            <Col>INFORMATION ABOUT MITCHELL HERE</Col>
-        </Row>
-        <Row xs = "1">
-            <Col className = "header">Why It Was Created</Col>
-            <Col>This site was created so that fellow Blugolds could have a common place to communicate with each other for anything! 
-            Whether it be about sports, homework, clubs, Student Senate, ect. It all has a place here and is welcome to make 
-            their community stronger and grow through this website!
+            <Col className = "aboutUsCol" xs = "6">
+                <p>This site was created so that fellow Blugolds can have a common place to communicate with others for academics!</p>
+                <p>Specifically, it allows you to communicate with others in your major, minor, or certificate.</p>
+                <p>If you are not in a specific major/minor/certificate program, you can request to have access to those forms</p>
+                <p>via the Contact webpage on the navigation bar.</p>
+            </Col>
+            <Col className = "creatorsCol" xs = "6">
+                <div><img className = "suliImg" src = {sullivan_img} alt = "Sullivan Prellwitz"/></div>
+                <p><b>Sullivan Prellwitz</b></p>
+                <br />
+                <div><img className = "mitchImg" src = {mitchell_img} alt = "Mitchell Hanson" /></div>
+                <p><b>Mitchell Hanson</b></p>
             </Col>
         </Row>
     </Container>

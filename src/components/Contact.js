@@ -14,13 +14,7 @@ const Contact = (props) => {
   return (
     <Container>
       <Row>
-        <Col xs="6" sm="4">
-          <h1>About Us</h1>
-        </Col>
-        <Col xs="6" sm="4">
-          <h1>Who Are We?</h1>
-        </Col>
-        <Col sm="4">
+        <Col className = "contactForm" sm="4">
           <h1>Contact Form</h1>
           <Form>
             <FormGroup>
