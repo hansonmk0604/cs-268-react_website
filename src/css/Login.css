@@ -1,0 +1,5 @@
+.container {
+    padding-bottom: .8%;
+    padding-top: .8%;
+    flex-grow: 1;
+}

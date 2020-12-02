@@ -1,43 +1,61 @@
-import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-
-/* Format: form inside of columns */
-/* Information needed: name, email, subject message 
-   (MAYBE include checkbox for if form error, or bug or **OTHER IDEAS HERE** */
+import React from "react";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Container,
+  Row,
+  Col,
+} from "reactstrap";
 
 const Contact = (props) => {
   return (
     <Container>
       <Row>
-          {/* Item needs to be centered */}
-        <Col>{<h1>Contact Page</h1>}</Col>
-      </Row>
-      <Row>
-        <Col>Here you can find </Col>
-        <Col>Column</Col>
-        <Col>Column</Col>
-        <Col>Column</Col>
-      </Row>
-      <Row xs="4">
-        <Col>Column</Col>
-        <Col>Column</Col>
-        <Col>Column</Col>
-        <Col>Column</Col>
-      </Row>
-      <Row xs="4">
-        <Col>Column</Col>
-        <Col>Column</Col>
-        <Col xs="6">Column</Col>
-        <Col>Column</Col>
-      </Row>
-      <Row xs="1" sm="2" md="4">
-        <Col>Column</Col>
-        <Col>Column</Col>
-        <Col>Column</Col>
-        <Col>Column</Col>
+        <Col xs="6" sm="4">
+          <h1>About Us</h1>
+        </Col>
+        <Col xs="6" sm="4">
+          <h1>Who Are We?</h1>
+        </Col>
+        <Col sm="4">
+          <h1>Contact Form</h1>
+          <Form>
+            <FormGroup>
+              <Label for="email">Email</Label>
+              <Input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="yourEmail@uwec.edu"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="subject">Subject</Label>
+              <Input
+                type="text"
+                name="text"
+                id="subject"
+                placeholder="Something broke!"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="message">Message</Label>
+              <Input
+                type="textarea"
+                name="text"
+                id="message"
+                placeholder="Did you ever hear the Tragedy of Darth Plagueis the wise? I thought not. It's not a story the Jedi would tell you..."
+              />
+            </FormGroup>
+            <Button>Submit</Button>
+          </Form>
+        </Col>
       </Row>
     </Container>
   );
-}
+};
 
 export default Contact;
