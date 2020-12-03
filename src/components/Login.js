@@ -1,14 +1,12 @@
 import React from "react";
 import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
   Container,
   Row,
   Col,
-} from "reactstrap";
+  Button,
+  Form,
+  Nav
+} from "react-bootstrap";
 
 import "../css/Login.css";
 
@@ -18,7 +16,34 @@ const Login = (props) => {
       <Row className={"container"}>
         <Col>
           <Form>
-            <FormGroup>
+            <Form.Group>
+              <Form.Label for="email">Email</Form.Label>
+              <Form.Control type="email" placeholder="exampleEmail@uwec.edu" />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label for="password">Password</Form.Label>
+              <Form.Control type="password" placeholder="*******" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Login
+            </Button>
+          </Form>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Nav.Link href = "/signup">Don't have an account? Signup!</Nav.Link>
+        </Col>
+      </Row>
+    </Container>
+  );
+
+  /*
+    <Container>
+      <Row className={"container"}>
+        <Col>
+          <Form>
+            <Form.Group>
               <Label for="email">Email</Label>
               <Input
                 type="email"
@@ -26,8 +51,8 @@ const Login = (props) => {
                 id="email"
                 placeholder="exampleEmail@uwec.edu"
               />
-            </FormGroup>
-            <FormGroup>
+            </Form.Group>
+            <Form.Group>
               <Label for="password">Password</Label>
               <Input
                 type="password"
@@ -35,13 +60,14 @@ const Login = (props) => {
                 id="password"
                 placeholder="********"
               />
-            </FormGroup>
+            </Form.Group>
             <Button>Login</Button>
+            <Button><Nav.Link href = "/signup">Don't have an account? Signup!</Nav.Link></Button>
           </Form>
         </Col>
       </Row>
     </Container>
-  );
+    */
 };
 
 export default Login;

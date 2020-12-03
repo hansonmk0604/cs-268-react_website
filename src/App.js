@@ -12,17 +12,15 @@ import Error from "./components/Error";
 function App()
 {
   return (
-    <div>
-      <Switch>
-        <Route path = "/" component = {Home} exact />
-        <Route path = "/login" component = {Login} />
-        <Route path = "/signup" component = {Signup} />
-        <Route path = "/contact" component = {Contact} />
-        <Route path = "/about" component = {About} />
-        <Route component = {Error} />
-      </Switch>
-    </div>
-  )
+    <Switch>
+      <Route path = "/" component = {Home} exact />
+      <Route path = "/login" component = {Login} />
+      <Route path = "/signup" component = {Signup} />
+      <Route path = "/contact" component = {Contact} />
+      <Route path = "/about" component = {About} />
+      <Route component = {Error} />
+    </Switch>
+  );
 }
 
 export default App;
