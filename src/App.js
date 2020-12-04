@@ -1,4 +1,3 @@
-import './css/App.css';
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
@@ -8,6 +7,7 @@ import Signup from "./components/Signup";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Error from "./components/Error";
+import './css/App.css';
 
 function App()
 {

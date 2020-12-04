@@ -3,7 +3,7 @@ import {
     Container, 
     Row, 
     Col 
-} from 'reactstrap';
+} from 'react-bootstrap';
 
 import "../css/About.css";
 import sullivan_img from "../imgs/sullivan_img.JPG";
