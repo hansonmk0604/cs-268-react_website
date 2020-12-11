@@ -8,6 +8,9 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Logout from "./components/Logout";
 import Error from "./components/Error";
+import Forum from "./components/Forum";
+import CreateForum from "./components/CreateForum";
+import Thread from "./components/Thread";
 import './css/App.css';
 import LoggedIn from "./components/LoggedIn";
 
@@ -15,7 +18,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedIn: false
+            loggedIn: true
         }
     }
 
@@ -33,7 +36,12 @@ class App extends React.Component {
                 {/* Conditional statement for entering logout page. If we are logged in, enter logout, otherwise redirect */}
                 <Route path="/logout" component={Logout} exact>{this.state.loggedIn ? <Logout/> :
                     <Redirect to="/login"/>}</Route>
-
+                <Route path ="/forum" component={Forum} exact>{this.state.loggedIn ? <Forum/> :
+                    <Redirect to="/login"/>}</Route>
+                <Route path ="/createForums" component={CreateForum} exact>{this.state.loggedIn ? <CreateForum/> :
+                    <Redirect to="/login"/>}</Route>
+                <Route path ="/thread" component={Thread} exact>{this.state.loggedIn ? <Thread/> :
+                    <Redirect to="/login"/>}</Route>
                 <Route component={Error}/>
             </Switch>
         );

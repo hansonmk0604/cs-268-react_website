@@ -4,7 +4,6 @@ import {
     Row,
     Col
 } from 'react-bootstrap';
-import {useLocation} from "react-router-dom";
 
 import "../css/About.css";
 import sullivan_img from "../imgs/sullivan_img.JPG";

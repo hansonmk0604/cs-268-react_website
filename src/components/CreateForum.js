@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
-class Logout extends React.Component
+class CreateForum extends React.Component
 {
   constructor()
   {
@@ -24,4 +24,4 @@ class Logout extends React.Component
   }
 }
 
-export default Logout;
+export default CreateForum;

@@ -25,6 +25,7 @@ class NavBar extends React.Component
           <Nav className="mr-auto">
             <Nav.Link href = "/about">About</Nav.Link>
             <Nav.Link href = "/contact">Contact</Nav.Link>
+            <Nav.Link href = "/forum">Forums</Nav.Link>
           </Nav>
           <Nav className = "ml-auto">
             <Nav.Link href = "/login">Login</Nav.Link>

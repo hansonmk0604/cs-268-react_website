@@ -6,7 +6,6 @@ import {
   Form,
   Button
 } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
 
 {/* Dont forget about certificates!*/}
 

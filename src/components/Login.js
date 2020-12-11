@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import {Button, Col, Container, Form, Nav, Row} from "react-bootstrap";
 import {Redirect} from "react-router-dom";
 import axios from 'axios'
@@ -112,3 +112,4 @@ class Login extends React.Component {
 }
 
 export default Login;
+*/
