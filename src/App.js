@@ -40,21 +40,4 @@ class App extends React.Component {
     }
 }
 
-/*
-function App(props)
-{
-  return (
-    <Switch>
-      <Route path = "/" component = {Home} exact />
-      <Route path = "/login" component = {Login} exact > {this.state.loggedIn ? <Redirect to = "/" /> : <Redirect to = "/login" />} </Route>
-      <Route path = "/signup" component = {Signup} exact />
-      <Route path = "/contact" component = {Contact} exact />
-      <Route path = "/about" component = {About} exact />
-      <Route path = "/logout" component = {Logout} exact />
-      <Route component = {Error} />
-    </Switch>
-  );
-}
-*/
-
 export default App;
