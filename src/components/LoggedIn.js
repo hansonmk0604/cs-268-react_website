@@ -20,7 +20,7 @@ class LoggedIn extends React.Component
         return (
             <Container className = "container">
                 <Row className="headerRow" lg = "1">
-                    <Col>{<h2>{this.props.location.state.userToken}</h2>}</Col>
+                    <Col>{<h2>{this.props.location.state.token}</h2>}</Col>
                     <Col>{<h1>University of Wisconsin Eau Claire</h1>}</Col>
                     <Col>{<h2>Forum Page</h2>}</Col>
                 </Row>

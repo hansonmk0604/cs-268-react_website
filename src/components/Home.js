@@ -7,16 +7,19 @@ import "../css/Home.css";
 
 class Home extends React.Component
 {
-    constructor()
+    constructor(props)
     {
-        super();
+        super(props);
         this.state = {
-        from: "/"
+            // https://stackoverflow.com/questions/42768289/how-to-avoid-getting-error-because-of-undefined-in-react-native
+            loggedIn: this.props.location.state ? this.props.location.state.loggedIn : true
         }
     }
 
     render()
     {
+        console.log(this.state.loggedIn)
+
         return (
             <Container className = "container">
                 <Row className="headerRow" lg = "1">

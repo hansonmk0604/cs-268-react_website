@@ -1,21 +1,24 @@
-/*import React from "react";
+import React from "react";
 import {Button, Col, Container, Form, Nav, Row} from "react-bootstrap";
 import {Redirect} from "react-router-dom";
-import axios from 'axios'
+//import axios from 'axios'
 import "../css/Login.css";
 
 
 class Login extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            loggedIn: false,
+            loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false,
             userName: "",
             password: "",
             token: ""
         }
     }
-
+    handleClick = (e) => {
+        this.setState({loggedIn: true})
+    }
+/*
     handleClick = (e) => {
         e.preventDefault();
         console.log("hello world")
@@ -63,6 +66,7 @@ class Login extends React.Component {
         }
         login()
     }
+    */
 
     render() {
         console.log(this.state.loggedIn);
@@ -70,8 +74,8 @@ class Login extends React.Component {
 
         if (this.state.loggedIn) {
             const location = {
-                pathname: '/loggedin',
-                state: {userToken: this.state.token}
+                pathname: '/NavBar',
+                state: {loggedIn: this.state.loggedIn}
             }
             return (
                 <Redirect to={location}/>
@@ -112,4 +116,3 @@ class Login extends React.Component {
 }
 
 export default Login;
-*/

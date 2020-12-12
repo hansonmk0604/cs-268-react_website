@@ -7,20 +7,37 @@ import {
   Form,
   Nav
 } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class Logout extends React.Component
 {
-  constructor()
+  constructor(props)
   {
-    super();
+    super(props);
+    this.state = {
+      loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false
+    }
   }
 
   render()
   {
-    return(
-      <h1>bitch</h1>
-    );
+    console.log(this.state.loggedIn)
+    
+    if (this.state.loggedIn)
+    {
+      return(
+        <h1>Fill out logout page here!</h1>
+      );
+    }
+    else
+    {
+      return(
+        <Redirect to = {{
+          pathname: "/login",
+          loggedIn: this.state.loggedIn
+        }} />
+      );
+    }
   }
 }
 

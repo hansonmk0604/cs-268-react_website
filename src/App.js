@@ -18,7 +18,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedIn: true
+            
         }
     }
 
@@ -26,22 +26,19 @@ class App extends React.Component {
         return (
             <Switch>
                 <Route path="/" component={Home} exact/>
-                {/* Conditional statement for entering login page. If we are logged in, redirect, otherwise enter login page */}
-                <Route path="/login" component={Login} exact>{this.state.loggedIn ? <Redirect to="/"/> :
-                    <Login/>}</Route>
+                {/* Conditional statement for entering login page. If we are logged in, redirect, otherwise enter login page 
+                {this.state.loggedIn ? <Redirect to="/"/> :
+                    <Login/>}</Route> */}
+                <Route path="/login" component={Login} exact />
                 <Route path="/signup" component={Signup} exact/>
                 <Route path="/contact" component={Contact} exact/>
                 <Route path="/about" component={About} exact/>
                 <Route path="/loggedin" component={LoggedIn} exact/>
                 {/* Conditional statement for entering logout page. If we are logged in, enter logout, otherwise redirect */}
-                <Route path="/logout" component={Logout} exact>{this.state.loggedIn ? <Logout/> :
-                    <Redirect to="/login"/>}</Route>
-                <Route path ="/forum" component={Forum} exact>{this.state.loggedIn ? <Forum/> :
-                    <Redirect to="/login"/>}</Route>
-                <Route path ="/createForums" component={CreateForum} exact>{this.state.loggedIn ? <CreateForum/> :
-                    <Redirect to="/login"/>}</Route>
-                <Route path ="/thread" component={Thread} exact>{this.state.loggedIn ? <Thread/> :
-                    <Redirect to="/login"/>}</Route>
+                <Route path="/logout" component={Logout} exact />
+                <Route path ="/forum" component={Forum} exact />
+                <Route path ="/createForum" component={CreateForum} exact />
+                <Route path ="/thread" component={Thread} exact />
                 <Route component={Error}/>
             </Switch>
         );

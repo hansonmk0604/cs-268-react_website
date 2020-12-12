@@ -7,13 +7,16 @@ import {
   Form,
   Nav
 } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
 
 class CreateForum extends React.Component
 {
-  constructor()
+  constructor(props)
   {
-    super();
+    super(props);
+    this.state = {
+      //loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false
+      loggedIn: true
+    }
   }
 
   render()
