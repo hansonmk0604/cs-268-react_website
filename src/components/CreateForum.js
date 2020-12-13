@@ -8,23 +8,10 @@ import {
   Nav
 } from "react-bootstrap";
 
-class CreateForum extends React.Component
-{
-  constructor(props)
-  {
-    super(props);
-    this.state = {
-      //loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false
-      loggedIn: true
-    }
-  }
-
-  render()
-  {
+function CreateForum() {
     return(
       <h1>bitch</h1>
     );
-  }
 }
 
 export default CreateForum;

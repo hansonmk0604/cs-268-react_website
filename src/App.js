@@ -12,7 +12,6 @@ import Forum from "./components/Forum";
 import CreateForum from "./components/CreateForum";
 import Thread from "./components/Thread";
 import './css/App.css';
-import LoggedIn from "./components/LoggedIn";
 
 class App extends React.Component {
     constructor(props) {
@@ -33,7 +32,6 @@ class App extends React.Component {
                 <Route path="/signup" component={Signup} exact/>
                 <Route path="/contact" component={Contact} exact/>
                 <Route path="/about" component={About} exact/>
-                <Route path="/loggedin" component={LoggedIn} exact/>
                 {/* Conditional statement for entering logout page. If we are logged in, enter logout, otherwise redirect */}
                 <Route path="/logout" component={Logout} exact />
                 <Route path ="/forum" component={Forum} exact />

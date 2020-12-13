@@ -9,16 +9,7 @@ import {
 
 {/* Dont forget about certificates!*/}
 
-class Signup extends React.Component
-{
-  constructor()
-  {
-    super();
-
-  }
-
-  render()
-  {
+function Signup() {
     return (
       <Container>
         <Row className = {"container"}>
@@ -63,7 +54,6 @@ class Signup extends React.Component
         </Row>
       </Container>
     );
-  }
 }
 
 export default Signup;

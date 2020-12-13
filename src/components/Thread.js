@@ -9,26 +9,7 @@ import {
 } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 
-class Thread extends React.Component
-{
-  constructor(props)
-  {
-    super(props);
-    this.state = {
-        loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false
-    }
-  }
-
-  handleClick = (e) =>
-  {
-    e.preventDefault();
-    <Redirect to = "/createForum" />
-  }
-
-  render()
-  {
-    if (this.state.loggedIn)
-    {
+function Thread() {
       return(
         <div id = "forumRoot">
           <Container className = "container">
@@ -40,16 +21,6 @@ class Thread extends React.Component
           </Container>
         </div>
       );
-    }
-    else
-    {
-      return (
-        <Redirect to = {{
-            pathname: "/login"
-        }} />
-      );
-    }
-  }
 }
 
 export default Thread;

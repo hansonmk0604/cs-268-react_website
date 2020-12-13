@@ -8,18 +8,7 @@ import {
 } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
-class Contact extends React.Component
-{
-  constructor()
-  {
-    super();
-    this.state = {
-      from: "/contact"
-    }
-  }
-
-  render()
-  {
+function Contact() {
     return (
       <Container>
         <Row className={"container"}>
@@ -46,6 +35,5 @@ class Contact extends React.Component
       </Container>
     );
   }
-}
 
 export default Contact;

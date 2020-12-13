@@ -1,7 +1,7 @@
 html
 {
   /* Is the background color for the whole website besides the div*/
-  background-color: black;
+  background-color: white;
 }
 
 body
@@ -11,7 +11,7 @@ body
 
 body
 {
-  background-color: black
+  background-color: white;
 }
 
 #root {
