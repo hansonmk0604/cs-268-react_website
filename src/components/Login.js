@@ -1,24 +1,30 @@
 import React from "react";
-import {Button, Col, Container, Form, Nav, Row} from "react-bootstrap";
+import {Alert, Button, Col, Container, Form, Nav, Row} from "react-bootstrap";
 import {Redirect} from "react-router-dom";
-//import axios from 'axios'
+import axios from 'axios'
+import {withCookies, Cookies} from "react-cookie";
 import "../css/Login.css";
-
+import {instanceOf} from "prop-types";
 
 class Login extends React.Component {
+    static propTypes = {
+        cookies: instanceOf(Cookies).isRequired
+    }
+
     constructor(props) {
         super(props);
+        const {cookies} = props;
         this.state = {
             loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false,
             userName: "",
             password: "",
-            token: ""
+            token: "",
+            userID: "",
+            loginError: false,
+            userInfo: cookies.get('userInfo') || null
         }
     }
-    handleClick = (e) => {
-        this.setState({loggedIn: true})
-    }
-/*
+
     handleClick = (e) => {
         e.preventDefault();
         console.log("hello world")
@@ -51,31 +57,28 @@ class Login extends React.Component {
 `
                 }
             ).then((result) => {
-                let data;
                 if (!result.data.data.Login.error.errors) {
-                    console.log("This is where we redirect")
-                    this.state.token = result.data.data.Login.token.token
-
-                    this.setState({loggedIn: true})
-                    console.log(this.state.token)
-                    console.log(this.state.loggedIn)
+                    this.setState({loggedIn: true, userID: result.data.data.Login.userId})
+                    let user = {
+                        userID: this.state.userID,
+                        userToken: result.data.data.Login.token.token,
+                        userEmail: result.data.data.Login.email
+                    }
+                    const {cookies} = this.props
+                    cookies.set('userInfo', user, {path: '/', secure: false, httpOnly: false, sameSite: false})
                 } else {
-
+                    this.setState({loginError: true})
                 }
             })
         }
         login()
     }
-    */
 
     render() {
-        console.log(this.state.loggedIn);
-
-
         if (this.state.loggedIn) {
             const location = {
-                pathname: '/NavBar',
-                state: {loggedIn: this.state.loggedIn}
+                pathname: '/Forum',
+                state: {loggedIn: this.state.loggedIn, userID: this.state.userID}
             }
             return (
                 <Redirect to={location}/>
@@ -86,6 +89,20 @@ class Login extends React.Component {
                 <Row className={"container"}>
                     <Col>
                         <Form>
+                            {this.state.loginError && (
+                                <div>
+                                    <Alert variant="danger">
+                                        <Alert.Heading>Error when trying to log in!</Alert.Heading>
+                                        <p>
+                                            This typically means your username or password was incorrect. This could
+                                            also
+                                            be an issue on our end. If the errors persist and your information is
+                                            correct please
+                                            reach out.
+                                        </p>
+                                    </Alert>
+                                </div>
+                            )}
                             <Form.Group>
                                 <Form.Label for="email">Email</Form.Label>
                                 <Form.Control type="email" onChange={(event) => {
@@ -111,8 +128,7 @@ class Login extends React.Component {
                 </Row>
             </Container>
         );
-
     }
 }
 
-export default Login;
+export default withCookies(Login);

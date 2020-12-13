@@ -15,8 +15,7 @@ class Thread extends React.Component
   {
     super(props);
     this.state = {
-        //loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false
-        loggedIn: true
+        loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false
     }
   }
 

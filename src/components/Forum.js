@@ -1,98 +1,98 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  Nav
-} from "react-bootstrap";
-import { Link, Redirect } from "react-router-dom";
+import {Button, Card, Col, Container, Row} from "react-bootstrap";
+import {Link, Redirect} from "react-router-dom";
+import {Cookies, withCookies} from 'react-cookie';
+import {instanceOf} from "prop-types";
+import axios from "axios";
+import ForumThread from "./ForumThread";
 
-class Forum extends React.Component
-{
-  constructor(props)
-  {
-    super(props);
-    this.state = {
-        //loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false
-        loggedIn: true
-    }
-  }
+class Forum extends React.Component {
+    static propTypes = {
+        cookies: instanceOf(Cookies).isRequired
+    };
 
-  render()
-  {
-    if (this.state.loggedIn)
-    {
-        return(
-            <Container className="container">
-                <Row>
-                    <Col><h1><b>Forums</b></h1></Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Link to = {{
-                            pathname: '/thread',
-                            state: {
-                                major: "Computer Science/Software Engineering"
-                            }
-                        }}>Computer Science/Software Engineering</Link>
-                    </Col>
-                    <Col>
-                    <Link to = {{
-                            pathname: '/thread',
-                            state: {
-                                major: "Art"
-                            }
-                        }}>Art</Link>
-                    </Col>
-                    <Col>
-                        <Link to = {{
-                            pathname: '/thread',
-                            state: {
-                                major: "Mathematics"
-                            }
-                        }} onClick = {this.handleClick}>Mathematics</Link>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Link to = {{
-                            pathname: '/thread',
-                            state: {
-                                major: "Music - Applied Instrumental"
-                            }
-                        }} onClick = {this.handleClick}>Music - Applied Instrumental</Link>
-                    </Col>
-                    <Col>
-                        <Link to = {{
-                            pathname: '/thread',
-                            state: {
-                                major: "Music - Applied Voice"
-                            }
-                        }} onClick = {this.handleClick}>Music - Applied Voice</Link>
-                    </Col>
-                    <Col>
-                        <Link to = {{
-                            pathname: '/thread',
-                            state: {
-                                major: "Musical Theatre"
-                            }
-                        }} onClick = {this.handleClick}>Musical Theatre</Link>                
-                    </Col>
-                </Row>
-            </Container>
-        );
+    constructor(props) {
+        super(props);
+        const { cookies } = props;
+
+        this.state = {
+            loggedIn: this.props.location.state ? this.props.location.state.loggedIn : false,
+            userInfo: cookies.get('userInfo'),
+            queryErrors: false,
+            queryResults: []
+        }
     }
-    else
-    {
-        return (
-            <Redirect to = {{
-                pathname: "/login"
-            }} />
-        );
+
+    getThreads = () => {
+        const threadsQuery = () => {
+                axios.post('http://localhost:8080/query', {
+                        query: `
+                query {
+                  Threads(
+                    input: {
+                      email: "${this.state.userInfo.userEmail}"
+                      token: "${this.state.userInfo.userToken}"
+                    }
+                  ) {
+                    threads {
+                      id
+                      name
+                      tagLine
+                      classPrefix
+                    }
+                    errors {
+                      errors
+                      code
+                      message
+                    }
+                  }
+                }
+`
+                    }
+                ).then((result) => {
+                    if (!result.data.data.Threads.errors.errors) {
+                        this.setState({queryResults: result.data.data.Threads.threads})
+                        console.log(result.data.data.Threads.threads)
+                    } else {
+                        this.setState({queryErrors: true})
+                        console.log(result.data.data.Threads.errors.message)
+                    }
+                })
+        }
+        threadsQuery()
     }
-  }
+    componentDidMount() {
+        const {cookies} = this.props;
+        this.setState({userInfo: cookies.get('userInfo')})
+        this.getThreads()
+    }
+
+    render() {
+        const {cookies} = this.props;
+        this.state.userInfo = cookies.get('userInfo')
+        if (this.state.loggedIn) {
+            return (
+                <Container className="container">
+                    <Row>
+                        <Col><h1><b>Department Threads</b></h1></Col>
+                    </Row>
+                    <Row>
+
+                        {this.state.queryResults.map((thread) => (
+                           <ForumThread tagline={thread.tagLine} name={thread.name} id={thread.id}/>
+                        ))}
+
+                    </Row>
+                </Container>
+            );
+        } else {
+            return (
+                <Redirect to={{
+                    pathname: "/login"
+                }}/>
+            );
+        }
+    }
 }
 
-export default Forum;
+export default withCookies(Forum);
