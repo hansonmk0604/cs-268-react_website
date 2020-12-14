@@ -8,41 +8,24 @@ function NavBar() {
     const userInfoState = useStoreState(UserInfo)
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand as={Link}
-                          to={{
-                              pathname: "/"
-                          }}>Home</Navbar.Brand>
+            <Navbar.Brand href = '/'>Home</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link as={Link}
-                              to={{
-                                  pathname: "/about"
-                              }}>About</Nav.Link>
-                    <Nav.Link as={Link}
-                              to={{
-                                  pathname: "/contact"
-                              }}>Contact</Nav.Link>
-                    <Nav.Link as={Link}
-                              to={{
-                                  pathname: "/forum"
-                              }}>Forums</Nav.Link>
+                    <Nav.Link href = "/about">About</Nav.Link>
+                    <Nav.Link href = "/contact">Contact</Nav.Link>
+                    <Nav.Link href = "/forum">Forums</Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
                     {!userInfoState.userLoggedIn && (
-                        <Nav.Link as={Link} to={{
-                            pathname: "/login"
-                        }}>Login</Nav.Link>
+                        <Nav.Link href = '/login'>Login</Nav.Link>
                     )}
                     {!userInfoState.userLoggedIn && (
-                        <Nav.Link as={Link} to={{
-                            pathname: "/signup"
-                        }}>Sign Up</Nav.Link>
+                        <Nav.Link href = '/signup'>Sign Up</Nav.Link>
                     )}
                     {userInfoState.userLoggedIn && (
-                        <Nav.Link as={Link} to={{
-                            pathname: "/logout"
-                             }}>Logout</Nav.Link>)}
+                        <Nav.Link href = '/logout'>Logout</Nav.Link>
+                    )}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

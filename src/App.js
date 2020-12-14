@@ -11,11 +11,12 @@ import Error from "./components/Error";
 import Forum from "./components/Forum";
 import CreateForum from "./components/CreateForum";
 import Thread from "./components/Thread";
-import './css/App.css';
+import CompletedForum from './components/CompletedForum';
 import {useCookies} from "react-cookie";
 import {useStoreState} from "pullstate";
 import {UserInfo} from "./components/UserInfo";
 import axios from "axios";
+import './css/App.css';
 
 
 function App() {
@@ -79,6 +80,7 @@ function App() {
                 <Route path ="/forum" component={Forum} exact />
                 <Route path ="/createForum" component={CreateForum} exact />
                 <Route path ="/thread" component={Thread} exact />
+                <Route path ='/completedForum' component={CompletedForum} exact />
                 <Route component={Error}/>
             </Switch>
         );

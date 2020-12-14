@@ -3,10 +3,10 @@ import {Alert, Button, Col, Container, Form, Nav, Row} from "react-bootstrap";
 import {Redirect} from "react-router-dom";
 import axios from 'axios'
 import {withCookies, Cookies, useCookies} from "react-cookie";
-import "../css/Login.css";
 import {instanceOf} from "prop-types";
 import {UserInfo} from "./UserInfo";
 import {useStoreState} from "pullstate";
+import "../css/Login.css";
 
 function Login() {
     const [cookies, setCookie] = useCookies(['userToken']);
