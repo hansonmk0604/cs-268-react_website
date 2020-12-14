@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Card, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {useStoreState} from "pullstate";
+import {UserInfo} from "./UserInfo";
+import axios from "axios";
 
 function ForumThread(props) {
         return (
@@ -11,7 +14,9 @@ function ForumThread(props) {
                         <Link to = {{
                             pathname: '/thread',
                             state: {
-                                id: props.id
+                                id: props.id,
+                                name: props.name,
+                                tagline: props.tagline
                             }
                         }}>View Thread</Link>
                     </Card.Body>

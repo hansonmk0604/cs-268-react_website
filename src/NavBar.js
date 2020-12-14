@@ -1,6 +1,6 @@
 import React from 'react';
 import {Nav, Navbar} from 'react-bootstrap';
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useStoreState} from "pullstate";
 import {UserInfo} from "./components/UserInfo";
 
@@ -34,10 +34,15 @@ function NavBar() {
                             pathname: "/login"
                         }}>Login</Nav.Link>
                     )}
-                    <Nav.Link as={Link}
-                              to={{
-                                  pathname: "/logout"
-                              }}>Logout</Nav.Link>
+                    {!userInfoState.userLoggedIn && (
+                        <Nav.Link as={Link} to={{
+                            pathname: "/signup"
+                        }}>Sign Up</Nav.Link>
+                    )}
+                    {userInfoState.userLoggedIn && (
+                        <Nav.Link as={Link} to={{
+                            pathname: "/logout"
+                             }}>Logout</Nav.Link>)}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
