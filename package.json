@@ -10,6 +10,7 @@
     "apollo": "^2.31.2",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "pullstate": "^1.20.4",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-cookie": "^4.0.3",

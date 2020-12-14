@@ -1,8 +1,11 @@
 import React from 'react';
 import {Nav, Navbar} from 'react-bootstrap';
 import {Link, NavLink} from "react-router-dom";
+import {useStoreState} from "pullstate";
+import {UserInfo} from "./components/UserInfo";
 
 function NavBar() {
+    const userInfoState = useStoreState(UserInfo)
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand as={Link}
@@ -26,9 +29,11 @@ function NavBar() {
                               }}>Forums</Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
-                    <Nav.Link as={Link} to={{
-                        pathname: "/login"
-                    }}>Login</Nav.Link>
+                    {!userInfoState.userLoggedIn && (
+                        <Nav.Link as={Link} to={{
+                            pathname: "/login"
+                        }}>Login</Nav.Link>
+                    )}
                     <Nav.Link as={Link}
                               to={{
                                   pathname: "/logout"

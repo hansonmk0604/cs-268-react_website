@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
 
 import Home from "./components/Home";
@@ -12,16 +12,58 @@ import Forum from "./components/Forum";
 import CreateForum from "./components/CreateForum";
 import Thread from "./components/Thread";
 import './css/App.css';
+import {useCookies} from "react-cookie";
+import {useStoreState} from "pullstate";
+import {UserInfo} from "./components/UserInfo";
+import axios from "axios";
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            
+
+function App() {
+        const [cookies] = useCookies(['userToken']);
+        const userInfoState = useStoreState(UserInfo)
+        const loginWithCookie = () => {
+                axios.post('http://localhost:8080/query', {
+                            query: `
+                mutation {
+                  Login(
+                    input: {
+                      email: ""
+                      password: ""
+                      token: "${cookies.userToken}"
+                    }
+                  ) {
+                    userId
+                    email
+                    token {
+                      token
+                      expireDate
+                    }
+                    error {
+                      message
+                      code
+                      errors
+                    }
+                  }
+                }
+`
+                    }
+                ).then((result) => {
+                        if (!result.data.data.Login.error.errors) {
+                                console.log(result.data.data.Login)
+                                console.log(cookies)
+                                UserInfo.update(s => {
+                                        s.userLoggedIn = true;
+                                        s.userToken = result.data.data.Login.token.token;
+                                        s.userId = result.data.data.Login.userId;
+                                        s.userEmail = result.data.data.Login.email;
+                                })
+                        }
+                })
         }
-    }
 
-    render() {
+        useEffect(() => {
+                loginWithCookie()
+        }, [])
         return (
             <Switch>
                 <Route path="/" component={Home} exact/>
@@ -40,7 +82,6 @@ class App extends React.Component {
                 <Route component={Error}/>
             </Switch>
         );
-    }
 }
 
 export default App;
