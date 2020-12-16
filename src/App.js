@@ -50,13 +50,19 @@ function App() {
                     }
                 ).then((result) => {
                         if (!result.data.data.Login.error.errors) {
-                                console.log(result.data.data.Login)
-                                console.log(cookies)
                                 UserInfo.update(s => {
                                         s.userLoggedIn = true;
                                         s.userToken = result.data.data.Login.token.token;
                                         s.userId = result.data.data.Login.userId;
                                         s.userEmail = result.data.data.Login.email;
+                                })
+                        } else {
+                                removeCookie('userToken')
+                                UserInfo.update(s => {
+                                        s.userLoggedIn = false;
+                                        s.userToken = '';
+                                        s.userId = '';
+                                        s.userEmail = '';
                                 })
                         }
                 })
