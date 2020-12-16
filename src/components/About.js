@@ -11,7 +11,6 @@ function About() {
             <Row>
                 <Col>
                     <h1><b>About This Site</b></h1>
-                    <br />
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
@@ -21,8 +20,9 @@ function About() {
             </Row>
             <Row className="justify-content-md-center">
                 <Col className="aboutUsCol" xs="6">
-                    <p>This site was created so that fellow Blugolds can have a common place to communicate with
-                        others for academics!</p>
+                    <div>This site was created so that fellow Blugolds can have a common place to communicate with
+                        others for academics! Especially during COVID-19, we believe it is important to give students
+                        a place to collaborate with others on academics.</div>
                     <br />
                 </Col>
             </Row>
@@ -32,21 +32,29 @@ function About() {
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
-                <Col className="creatorsCol" xs="4">
+                <Col className="creatorsCol" xs="6">
                     <div>
                         <img className="suliImg" src={sullivan_img} fluid alt="Sullivan Prellwitz"/>
                     </div>
-                    <p className="aboutSuli"><b>Sullivan Prellwitz</b></p>
+                    <p className="ourName"><b>Sullivan Prellwitz</b></p>
                     <p className="aboutSuli">Junior at UWEC with a major in Comprehensive Computer Science. 
                         Created the API and functionality of this site!</p>
                 </Col>
-                <Col className="creatorsCol" xs="4">
+                <Col className="creatorsCol" xs="6">
                     <div className="aboutMitch">
                         <img className="mitchImg" src={mitchell_img} fluid alt="Mitchell Hanson"/>
                     </div>
-                    <p className="aboutMitch"><b>Mitchell Hanson</b></p>
+                    <p className="ourName"><b>Mitchell Hanson</b></p>
                     <p className="aboutMitch">Junior at UWEC with a major in Comprehensive Computer Science with a minor in mathematics. 
                         Created the styling and components of the site!</p>
+                </Col>
+            </Row>
+            <Row className="justify-content-md-center">
+                <Col>
+                    <div className='emails'>
+                        <p>Questions or are having difficulties? Email the Sullivan Prellwitz at: </p>
+                        <p>Or Mitchell Hanson at: hansonmk0604@uwec.edu</p>
+                    </div>
                 </Col>
             </Row>
         </Container>

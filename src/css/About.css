@@ -1,6 +1,7 @@
 h1
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: royalblue;
     font-size: 5vw;
     text-align: center;
     padding-bottom: 3vh;
@@ -10,13 +11,25 @@ h2
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 4vw;
+    color: black;
     text-align: center;
     padding-bottom: 2vh;
+}
+
+div
+{
+    color: #444444;
+    text-align: center;
 }
 
 img
 {
     padding-bottom: 2vh;
+}
+
+.ourName
+{
+    color: black;
 }
 
 .aboutUsCol, .creatorsCol
@@ -34,5 +47,10 @@ img
 
 .suliImg, .mitchImg
 {
-    width: 65%;
+    width: 50%;
+}
+
+.emails
+{
+    margin-top: 2vh;
 }
