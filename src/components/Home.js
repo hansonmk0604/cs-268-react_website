@@ -30,6 +30,13 @@ function Home() {
                         </p>
                     </Col>
                 </Row>
+                <Row className="justify-content-md-center">
+                    <Col>
+                        <h2><u>How to get Started?</u></h2>
+                        <p>Make an account with signup in the top right of your screen! 
+                            Then, click on Forums for what class you need help with or want to help others with!</p>
+                    </Col>
+                </Row>
             </Container>
         );
 }
