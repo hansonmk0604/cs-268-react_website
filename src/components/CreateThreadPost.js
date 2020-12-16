@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Container, Row, Col, Button, Form, Nav } from "react-bootstrap";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import axios from 'axios';
 import {useStoreState} from "pullstate";
 import {UserInfo} from "./UserInfo";

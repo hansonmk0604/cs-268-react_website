@@ -30,13 +30,17 @@ function About() {
                     <p>via the Contact webpage on the navigation bar.</p>
                 </Col>
                 <Col className="creatorsCol" xs="4">
-                    <div><img className="suliImg" src={sullivan_img} alt="Sullivan Prellwitz"/></div>
+                    <div>
+                        <img className="suliImg" src={sullivan_img} alt="Sullivan Prellwitz"/>
+                    </div>
                     <p><b>Sullivan Prellwitz</b></p>
-                    <br/>
+                    <div>
+                        <img className="mitchImg" src={mitchell_img} alt="Mitchell Hanson"/>
+                    </div>
+                    <p><b>Mitchell Hanson</b></p>
                 </Col>
                 <Col className="creatorsCol" xs="4">
-                    <div><img className="mitchImg" src={mitchell_img} alt="Mitchell Hanson"/></div>
-                    <p><b>Mitchell Hanson</b></p>
+                    
                 </Col>
             </Row>
         </Container>
