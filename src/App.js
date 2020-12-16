@@ -4,7 +4,6 @@ import { Route, Switch} from 'react-router-dom';
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Contact from "./components/Contact";
 import About from "./components/About";
 import Logout from "./components/Logout";
 import Error from "./components/Error";
@@ -79,7 +78,6 @@ function App() {
                     <Login/>}</Route> */}
                 <Route path="/login" component={Login} exact />
                 <Route path="/signup" component={Signup} exact/>
-                <Route path="/contact" component={Contact} exact/>
                 <Route path="/about" component={About} exact/>
                 {/* Conditional statement for entering logout page. If we are logged in, enter logout, otherwise redirect */}
                 <Route path="/logout" component={Logout} exact />

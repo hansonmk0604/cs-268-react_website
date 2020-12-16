@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import NavBar from "./NavBar";
@@ -15,7 +14,6 @@ ReactDOM.render(
         <BrowserRouter>
             <NavBar/>
             <App/>
-            {/*<Footer />*/}
         </BrowserRouter>
     </CookiesProvider>,
     document.getElementById('root')

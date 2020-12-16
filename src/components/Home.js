@@ -9,10 +9,14 @@ import "../css/Home.css";
 function Home() {
         return (
             <Container className = "container">
-                <Row className="headerRow" lg = "1">
-                    <Col>{<h2>Welcome to the</h2>}</Col>
-                    <Col>{<h1>University of Wisconsin Eau Claire</h1>}</Col>
-                    <Col>{<h2>Forum Page</h2>}</Col>
+                <Row className="justify-content-md-center">
+                    <Col><h2>Welcome to the</h2></Col>
+                </Row>
+                <Row className="justify-content-md-center">
+                    <Col><h1>University of Wisconsin Eau Claire</h1></Col>
+                </Row>
+                <Row className="justify-content-md-center">
+                    <Col><h2>Forum Page</h2></Col>
                 </Row>
             </Container>
         );
