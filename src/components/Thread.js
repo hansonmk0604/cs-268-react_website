@@ -5,19 +5,20 @@ import {
     Col,
     Button,
     Form,
-    Nav, Jumbotron
+    Nav, Jumbotron, CardDeck, CardColumns
 } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import {useStoreState} from "pullstate";
 import {UserInfo} from "./UserInfo";
 import axios from "axios";
-import ThreadPost from "./ThreadPost";
+import ThreadPostCard from "./ThreadPostCard";
 
 function Thread(props) {
     const userInfoState = useStoreState(UserInfo)
     const [posts, setPosts] = useState([])
     const [apiErr, setApiErr] = useState(false)
     const [apiErrMsg, setApiErrMsg] = useState('')
+    const [createPostRedirect, setCreatePostRedirect] = useState(false)
 
     const handleAPIErrs = (error, message) => {
         setApiErr(error)
@@ -27,6 +28,11 @@ function Thread(props) {
     const handlePostsSet = (apiResp) => {
         setPosts(apiResp)
     }
+
+    const handleCreatPostClick = () => {
+        setCreatePostRedirect(true)
+    }
+
     const getPosts = () => {
         axios.post('http://localhost:8080/query', {
                 query: `
@@ -70,23 +76,39 @@ function Thread(props) {
         getPosts()
     }, [])
 
-
+if (createPostRedirect) {
+    const location = {
+        pathname: '/createThreadPost',
+        state: {threadId: props.location.state.id}
+    }
+    return (
+        <Redirect to={location}/>
+    )
+}
       return(
         <div id = "forumRoot">
           <Container>
             <Row>
+                <Col sm={12}>
                 <Jumbotron>
                     <h1>{props.location.state.name} threads!</h1>
                     <h4>{props.location.state.tagline}</h4>
                     <p>
-                        <Button variant="primary">Create Post</Button>
+                        <Button variant="primary" onClick={handleCreatPostClick}>Create Post</Button>
                     </p>
                 </Jumbotron>
+                </Col>
             </Row>
+          </Container>
+            <Container>
               <Row>
+                  <Col sm={12}>
+                  <CardColumns>
                   {posts && posts.map((post) => (
-                      <ThreadPost title={post.title} subheader={post.subHeader} id={post.id}/>
+                      <ThreadPostCard title={post.title} subheader={post.subHeader} id={post.id} threadId={props.location.state.id}/>
                   ))}
+                  </CardColumns>
+                  </Col>
               </Row>
           </Container>
         </div>

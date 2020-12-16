@@ -67,7 +67,7 @@ function Login() {
                         s.userId = result.data.data.Login.userId;
                         s.userEmail = result.data.data.Login.email;
                     })
-                    setCookie('userToken', result.data.data.Login.token.token, {path: '/', sameSite: false})
+                    setCookie('userToken', result.data.data.Login.token.token, {path: '/', sameSite: true})
                 } else {
                     handleAPIErrs(result.data.data.Login.error.errors, result.data.data.Login.error.message)
                 }

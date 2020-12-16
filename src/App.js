@@ -9,9 +9,9 @@ import About from "./components/About";
 import Logout from "./components/Logout";
 import Error from "./components/Error";
 import Forum from "./components/Forum";
-import CreateForum from "./components/CreateForum";
+import CreateThreadPost from "./components/CreateThreadPost";
 import Thread from "./components/Thread";
-import CompletedForum from './components/CompletedForum';
+import ThreadPost from './components/ThreadPost';
 import {useCookies} from "react-cookie";
 import {useStoreState} from "pullstate";
 import {UserInfo} from "./components/UserInfo";
@@ -20,7 +20,7 @@ import './css/App.css';
 
 
 function App() {
-        const [cookies] = useCookies(['userToken']);
+        const [cookies, setCookie, removeCookie] = useCookies(['userToken']);
         const userInfoState = useStoreState(UserInfo)
         const loginWithCookie = () => {
                 axios.post('http://localhost:8080/query', {
@@ -78,9 +78,9 @@ function App() {
                 {/* Conditional statement for entering logout page. If we are logged in, enter logout, otherwise redirect */}
                 <Route path="/logout" component={Logout} exact />
                 <Route path ="/forum" component={Forum} exact />
-                <Route path ="/createForum" component={CreateForum} exact />
+                <Route path ="/createThreadPost" component={CreateThreadPost} exact />
                 <Route path ="/thread" component={Thread} exact />
-                <Route path ='/completedForum' component={CompletedForum} exact />
+                <Route path ="/threadPost" component={ThreadPost} exact />
                 <Route component={Error}/>
             </Switch>
         );
