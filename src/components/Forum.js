@@ -64,14 +64,18 @@ function Forum() {
 
     if (userInfoState.userLoggedIn) {
         return (
-            <Container className="container">
+            <Container>
                 <Row>
                     <Col><h1><b>Department Threads</b></h1></Col>
                 </Row>
                 <Row>
+
                     {forumThreads && forumThreads.map((thread) => (
+                        <div>
                         <ForumThread tagline={thread.tagLine} name={thread.name} id={thread.id} key={thread.id}/>
+                        </div>
                     ))}
+
                 </Row>
             </Container>
         );

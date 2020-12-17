@@ -19,16 +19,6 @@ function CreateThreadPost(props) {
         setApiErrMsg(message)
     }
 
-    const handlePostId = (id) => {
-        id.preventDefault()
-        setPostId(id)
-    }
-
-    const handlePostCreation = (val) => {
-        val.preventDefault()
-        setPostCreatedRedirect(val)
-    }
-
     const handleTitleChange = (e) => {
         e.preventDefault()
         setTitle(e.target.value)

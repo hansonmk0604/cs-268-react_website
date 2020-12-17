@@ -4,7 +4,7 @@ import {Redirect} from "react-router-dom";
 import axios from 'axios'
 import {useCookies} from "react-cookie";
 import {UserInfo} from "./UserInfo";
-import "../css/Login.css";
+import "../css/App.css";
 
 function Login() {
     const [cookies, setCookie] = useCookies(['userToken']);

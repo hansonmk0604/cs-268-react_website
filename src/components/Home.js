@@ -1,11 +1,7 @@
 import React from "react";
 import {Col, Container, Row} from 'react-bootstrap';
 
-import "../css/Home.css";
-
-/* Have headers or just change text size with classNames for Col's */
-
-// https://stackoverflow.com/questions/42768289/how-to-avoid-getting-error-because-of-undefined-in-react-native
+import "../css/App.css";
 
 function Home() {
     return (
@@ -20,7 +16,7 @@ function Home() {
                 <Col>
                     <p className="introP">In this site, you can find help in the classes you are struggling with for
                         this semester!
-                        Does not matter if that class pertains to your major or minor! You are able to access any form
+                        Does not matter if that class pertains to your major or minor! You are able to access any forum thread
                         and get assistance from those on the site that are taking the same class, or have taken it
                         previously.</p>
                     <p className="introP">Essentially, this site is like a stackoverflow forum site, but for UWEC
@@ -29,7 +25,7 @@ function Home() {
             </Row>
             <Row className="justify-content-md-center">
                 <Col>
-                    <h2 className="getStartHeader"><u>How to get Started</u></h2>
+                    <h3 className="welcomeHeader">How to get Started</h3>
                     <p className="introP">Make an account with signup in the top right of your screen!
                         Then, click on Forums for what class you need help with or want to help others with!</p>
                 </Col>

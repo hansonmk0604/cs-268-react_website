@@ -4,7 +4,6 @@ import {Redirect} from "react-router-dom";
 import {UserInfo} from "./UserInfo";
 import axios from "axios";
 import ThreadPostCard from "./ThreadPostCard";
-import "../css/Thread.css";
 
 function Thread(props) {
     const userInfoState = UserInfo.useState()

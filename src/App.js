@@ -15,8 +15,7 @@ import {useCookies} from "react-cookie";
 import {useStoreState} from "pullstate";
 import {UserInfo} from "./components/UserInfo";
 import axios from "axios";
-import './css/App.css';
-import "./css/EachPage.css";
+import "./css/App.css";
 
 
 function App() {
