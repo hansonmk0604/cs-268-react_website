@@ -49,9 +49,8 @@ function About() {
                 <Col>
                     <div className='emails'>
                         <h2 className="h2-help">Questions, Comments, or concerns?</h2>
-                        Email Sullivan Prellwitz at: <b>prellwsr8859@uwec.edu</b>
-                        <br/>
-                        Or Mitchell Hanson at: <b>hansonmk0604@uwec.edu</b>
+                        <p className="suliEmail">Email Sullivan Prellwitz at: <b>prellwsr8859@uwec.edu</b></p>
+                        <p className="mitchEmail">Or Mitchell Hanson at: <b>hansonmk0604@uwec.edu</b></p>
                     </div>
                 </Col>
             </Row>

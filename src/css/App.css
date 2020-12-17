@@ -1,3 +1,7 @@
+body {
+    background-color: #e3e3e3;
+}
+
 .h1-about {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: royalblue;
@@ -26,6 +30,11 @@ img {
     padding-bottom: 2vh;
 }
 
+.suliEmail, .mitchEmail
+{
+    text-align: center;
+}
+
 .ourName {
     color: black;
 }
@@ -51,10 +60,6 @@ img {
     color: black;
     font-size: 2vw;
     margin-top: 3vh;
-}
-
-body {
-    background-color: #e3e3e3;
 }
 
 .welcomeHeader {
