@@ -22,9 +22,9 @@ function Forum() {
     }
 
 
-   const getThreads = () => {
-                axios.post('http://localhost:8080/query', {
-                        query: `
+    const getThreads = () => {
+        axios.post('http://localhost:8080/query', {
+                query: `
                 query {
                   Threads(
                     input: {
@@ -46,16 +46,16 @@ function Forum() {
                   }
                 }
 `
-                    }
-                ).then((result) => {
-                    if (!result.data.data.Threads.errors.errors) {
-                       handleForumThreads(result.data.data.Threads.threads)
-                    } else {
-                        handleAPIErrs(result.data.data.Login.errors.errors, result.data.data.Login.errors.message)
-                    }
-                }).catch(error => {
-                    handleAPIErrs(true, error)
-                })
+            }
+        ).then((result) => {
+            if (!result.data.data.Threads.errors.errors) {
+                handleForumThreads(result.data.data.Threads.threads)
+            } else {
+                handleAPIErrs(result.data.data.Login.errors.errors, result.data.data.Login.errors.message)
+            }
+        }).catch(error => {
+            handleAPIErrs(true, error)
+        })
     }
 
     useEffect(() => {
@@ -70,13 +70,12 @@ function Forum() {
                 </Row>
                 <Row>
                     {forumThreads && forumThreads.map((thread) => (
-                       <ForumThread tagline={thread.tagLine} name={thread.name} id={thread.id} key={thread.id}/>
+                        <ForumThread tagline={thread.tagLine} name={thread.name} id={thread.id} key={thread.id}/>
                     ))}
                 </Row>
             </Container>
         );
-    }
-    else {
+    } else {
         return (
             <Redirect to={'/login'}/>
         )

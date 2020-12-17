@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import {Button, Card} from "react-bootstrap";
-import { Redirect } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 function ThreadPostCard(props) {
 
     const location = {
         pathname: '/threadPost',
-        state: { postId: props.id, threadId: props.threadId}
+        state: {postId: props.id, threadId: props.threadId}
     }
 
     const [postRedirect, setPostRedirect] = useState(false)
@@ -26,9 +26,9 @@ function ThreadPostCard(props) {
 
         return (
             <Card className="text-center">
-                <Card.Header>{props.subheader}</Card.Header>
+                <Card.Header>{props.title}</Card.Header>
                 <Card.Body>
-                    <Card.Title>{props.title}</Card.Title>
+                    <Card.Title>{props.subheader}</Card.Title>
                     <Button variant="primary" onClick={handleClick}>View Post</Button>
                 </Card.Body>
             </Card>

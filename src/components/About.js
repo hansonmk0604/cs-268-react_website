@@ -20,9 +20,11 @@ function About() {
             </Row>
             <Row className="justify-content-md-center">
                 <Col className="aboutUsCol" xs="6">
-                    <div className="divCenter">This site was created so that fellow Blugolds can have a common place to communicate with
+                    <div className="divCenter">This site was created so that fellow Blugolds can have a common place to
+                        communicate with
                         others for academics! Especially during COVID-19, we believe it is important to give students
-                        a place to collaborate with others on academics.</div>
+                        a place to collaborate with others on academics.
+                    </div>
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
@@ -34,13 +36,14 @@ function About() {
                 <Col className="creatorsCol" xs="6">
                     <img className="suliImg" src={sullivan_img} fluid alt="Sullivan Prellwitz"/>
                     <p className="ourName"><b>Sullivan Prellwitz</b></p>
-                    <p className="aboutSuli">Junior at UWEC with a major in Comprehensive Computer Science. 
+                    <p className="aboutSuli">Junior at UWEC with a major in Comprehensive Computer Science.
                         Created the API and functionality of this site!</p>
                 </Col>
                 <Col className="creatorsCol" xs="6">
                     <img className="mitchImg" src={mitchell_img} fluid alt="Mitchell Hanson"/>
                     <p className="ourName"><b>Mitchell Hanson</b></p>
-                    <p className="aboutMitch">Junior at UWEC with a major in Comprehensive Computer Science with a minor in mathematics. 
+                    <p className="aboutMitch">Junior at UWEC with a major in Comprehensive Computer Science with a minor
+                        in mathematics.
                         Created the styling and components of the site!</p>
                 </Col>
             </Row>
@@ -49,7 +52,7 @@ function About() {
                     <div className='emails'>
                         <h2 className="h2-help"><u>Questions of are having difficulties?</u></h2>
                         Email Sullivan Prellwitz at: <b>prellwsr8859@uwec.edu</b>
-                        <br />
+                        <br/>
                         Or Mitchell Hanson at: <b>hansonmk0604@uwec.edu</b>
                     </div>
                 </Col>

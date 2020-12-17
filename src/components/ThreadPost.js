@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {Alert, Button, Card, Col, Container, Form, Jumbotron, ListGroup, Nav, Row, Spinner} from "react-bootstrap";
+import {Button, Card, Col, Container, Form, Row, Spinner} from "react-bootstrap";
 import axios from 'axios';
-import {useStoreState} from "pullstate";
 import {UserInfo} from "./UserInfo";
-import { Redirect } from "react-router-dom";
 import {useCookies} from "react-cookie";
 
 function ThreadPost(props) {
@@ -164,8 +162,7 @@ function ThreadPost(props) {
     }, [])
 
 
-    const handleClick = (e) =>
-    {
+    const handleClick = (e) => {
         e.preventDefault();
         postComment()
     }
@@ -182,15 +179,15 @@ function ThreadPost(props) {
             <Container>
                 <Row>
                     <Col sm={12}>
-                    <Card>
-                        <Card.Header as="h4">{post.title}</Card.Header>
-                        <Card.Body>
-                            <Card.Title>{post.subHeader}</Card.Title>
-                            <Card.Text>
+                        <Card>
+                            <Card.Header as="h4">{post.title}</Card.Header>
+                            <Card.Body>
+                                <Card.Title>{post.subHeader}</Card.Title>
+                                <Card.Text>
 
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
                     </Col>
                 </Row>
                 <Row>
@@ -200,7 +197,8 @@ function ThreadPost(props) {
                             <h4>Post Comment</h4>
                             <Form.Group>
                                 <Form.Label as={"h5"}>Comment</Form.Label>
-                                <Form.Control as='textarea' placeholder='Hehe haha funny!' onChange={handleCommentContent} value={commentContent}/>
+                                <Form.Control as='textarea' placeholder='Hehe haha funny!'
+                                              onChange={handleCommentContent} value={commentContent}/>
                             </Form.Group>
                             <Button onClick={handleClick} type='submit'>Post</Button>
                         </Form>
@@ -210,24 +208,23 @@ function ThreadPost(props) {
                 <Row>
                     <Col>
                         <h4>Comments</h4>
-                    {!commentsLoaded && (
-                        <Spinner animation="grow" variant="info" />
-                    )}
-                    {comments && comments.map((comment) => (
-                        <Card>
-                            <Card.Body>{comment.content}</Card.Body>
-                        </Card>
-                    ))}
+                        {!commentsLoaded && (
+                            <Spinner animation="grow" variant="info"/>
+                        )}
+                        {comments && comments.map((comment) => (
+                            <Card>
+                                <Card.Body>{comment.content}</Card.Body>
+                            </Card>
+                        ))}
                     </Col>
                 </Row>
             </Container>
         );
-    }
-    else if (!postLoaded) {
+    } else if (!postLoaded) {
         return (
             <Container>
                 <Row>
-                    <Spinner animation="border" variant="info" />
+                    <Spinner animation="border" variant="info"/>
                 </Row>
             </Container>
         )

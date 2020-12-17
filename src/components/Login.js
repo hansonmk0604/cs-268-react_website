@@ -2,10 +2,8 @@ import React, {useState} from "react";
 import {Alert, Button, Col, Container, Form, Nav, Row} from "react-bootstrap";
 import {Redirect} from "react-router-dom";
 import axios from 'axios'
-import {withCookies, Cookies, useCookies} from "react-cookie";
-import {instanceOf} from "prop-types";
+import {useCookies} from "react-cookie";
 import {UserInfo} from "./UserInfo";
-import {useStoreState} from "pullstate";
 import "../css/Login.css";
 
 function Login() {
@@ -31,7 +29,7 @@ function Login() {
         setPassword(e.target.value)
     }
 
-   const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const login = () => {
             axios.post('http://localhost:8080/query', {
@@ -81,8 +79,7 @@ function Login() {
         return (
             <Redirect to={'/forum'}/>
         )
-    }
-    else {
+    } else {
         return (
             <Container>
                 <Row className={"container"}>

@@ -81,8 +81,8 @@ function Signup() {
 
     const handleClick = e => {
         e.preventDefault()
-            axios.post('http://localhost:8080/query', {
-                    query: `
+        axios.post('http://localhost:8080/query', {
+                query: `
                 mutation {
                       CreateUser(
                         input: {
@@ -124,24 +124,24 @@ function Signup() {
                       }
                     }
 `
-                }
-            ).then((result) => {
-                if (!result.data.data.CreateUser.error.errors) {
-                    console.log(result.data.data.CreateUser)
-                    UserInfo.update(s => {
-                        s.userLoggedIn = true;
-                        s.userToken = result.data.data.CreateUser.token.token;
-                        s.userId = result.data.data.CreateUser._id;
-                        s.userEmail = result.data.data.CreateUser.email;
-                    })
-                    setCookie('userToken', result.data.data.CreateUser.token.token, {path: '/', sameSite: false})
-                } else {
-                    handleAPIErrs(result.data.data.CreateUser.error.errors, result.data.data.CreateUser.error.message)
-                }
-            }).catch(error => {
+            }
+        ).then((result) => {
+            if (!result.data.data.CreateUser.error.errors) {
+                console.log(result.data.data.CreateUser)
+                UserInfo.update(s => {
+                    s.userLoggedIn = true;
+                    s.userToken = result.data.data.CreateUser.token.token;
+                    s.userId = result.data.data.CreateUser._id;
+                    s.userEmail = result.data.data.CreateUser.email;
+                })
+                setCookie('userToken', result.data.data.CreateUser.token.token, {path: '/', sameSite: false})
+            } else {
+                handleAPIErrs(result.data.data.CreateUser.error.errors, result.data.data.CreateUser.error.message)
+            }
+        }).catch(error => {
 
-                handleAPIErrs(true, error)
-            })
+            handleAPIErrs(true, error)
+        })
     }
 
     if (userInfoState.userLoggedIn) {
@@ -155,17 +155,17 @@ function Signup() {
             <Row className={"container"}>
                 <Col>
                     {apiErr && (
-                            <Alert variant="danger">
-                                <Alert.Heading>Error when trying to create user!</Alert.Heading>
-                                <Alert.Heading>{apiErrMsg}</Alert.Heading>
-                                <p>
-                                    This typically means your email is already in use. This could
-                                    also
-                                    be an issue on our end. If the errors persist and your information is
-                                    correct please
-                                    reach out.
-                                </p>
-                            </Alert>
+                        <Alert variant="danger">
+                            <Alert.Heading>Error when trying to create user!</Alert.Heading>
+                            <Alert.Heading>{apiErrMsg}</Alert.Heading>
+                            <p>
+                                This typically means your email is already in use. This could
+                                also
+                                be an issue on our end. If the errors persist and your information is
+                                correct please
+                                reach out.
+                            </p>
+                        </Alert>
                     )}
                     <Form>
                         <Form.Group>
@@ -178,23 +178,28 @@ function Signup() {
                         </Form.Group>
                         <Form.Group>
                             <Form.Label htmlFor="email">Email</Form.Label>
-                            <Form.Control type="email" placeholder="yourEmail@uwec.edu" value={email} onChange={handleEmailInput}/>
+                            <Form.Control type="email" placeholder="yourEmail@uwec.edu" value={email}
+                                          onChange={handleEmailInput}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label htmlFor="password">Password</Form.Label>
-                            <Form.Control type="password" placeholder="*******" value={password} onChange={handlePasswordInput}/>
+                            <Form.Control type="password" placeholder="*******" value={password}
+                                          onChange={handlePasswordInput}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label htmlFor="major">Major</Form.Label>
-                            <Form.Control type="text" placeholder="Computer Science" value={major} onChange={handleMajorInput}/>
+                            <Form.Control type="text" placeholder="Computer Science" value={major}
+                                          onChange={handleMajorInput}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label htmlFor="minor">Minor</Form.Label>
-                            <Form.Control type="text" placeholder="Mathematics Liberal Arts" value={minor} onChange={handleMinorInput}/>
+                            <Form.Control type="text" placeholder="Mathematics Liberal Arts" value={minor}
+                                          onChange={handleMinorInput}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label htmlFor="certificate">Certificate</Form.Label>
-                            <Form.Control type="text" placeholder="Information Systems Certificate" value={certificates} onChange={handleCertificatesInput}/>
+                            <Form.Control type="text" placeholder="Information Systems Certificate" value={certificates}
+                                          onChange={handleCertificatesInput}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label htmlFor="dob">Date of Birth</Form.Label>

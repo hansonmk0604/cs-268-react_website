@@ -1,9 +1,8 @@
 import React from "react";
 
-function Error()
-{
+function Error() {
     return (
-        <h1>Page not found! Typo?</h1> 
+        <h1>Page not found! Typo?</h1>
     )
 }
 
