@@ -81,7 +81,6 @@ function CreateThreadPost(props) {
 
     if (userInfoState.userLoggedIn) {
         if (postCreatedRedirect) {
-            console.log(postId)
             const location = {
                 pathname: '/threadPost',
                 state: {postId: postId, threadId: props.location.state.threadId}

@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Form, Row, Spinner} from "react-bootstrap";
 import axios from 'axios';
 import {UserInfo} from "./UserInfo";
-import {useCookies} from "react-cookie";
 
 function ThreadPost(props) {
     const userInfoState = UserInfo.useState()
@@ -14,13 +13,10 @@ function ThreadPost(props) {
     const [commentsLoaded, setCommentsLoaded] = useState(false)
     const [commentContent, setCommentContent] = useState('')
     const [commentCreatedNeedUpdate, setCommentCreatedNeedUpdate] = useState(false)
-    const [pageNeedsUpdate, setPageNeedsUpdate] = useState(true)
-    const [cookies, setCookie, removeCookie] = useCookies(['userToken']);
 
     const handleAPIErrs = (error, message) => {
         setApiErr(error)
         setApiErrMsg(message)
-        console.log(message)
     }
 
     const handlePostSet = (apiResp) => {
@@ -49,7 +45,6 @@ function ThreadPost(props) {
     }
 
     const getPost = () => {
-        console.log(props.location.state.postId)
         axios.post('http://localhost:8080/query', {
                 query: `
             query {
@@ -212,7 +207,7 @@ function ThreadPost(props) {
                             <Spinner animation="grow" variant="info"/>
                         )}
                         {comments && comments.map((comment) => (
-                            <Card>
+                            <Card key={comment.id}>
                                 <Card.Body>{comment.content}</Card.Body>
                             </Card>
                         ))}

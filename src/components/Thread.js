@@ -97,7 +97,7 @@ function Thread(props) {
                     <Col sm={12}>
                         <CardColumns>
                             {posts && posts.map((post) => (
-                                <ThreadPostCard title={post.title} subheader={post.subHeader} id={post.id}
+                                <ThreadPostCard key={post.id} title={post.title} subheader={post.subHeader} id={post.id}
                                                 threadId={props.location.state.id}/>
                             ))}
                         </CardColumns>

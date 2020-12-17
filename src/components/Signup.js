@@ -127,7 +127,6 @@ function Signup() {
             }
         ).then((result) => {
             if (!result.data.data.CreateUser.error.errors) {
-                console.log(result.data.data.CreateUser)
                 UserInfo.update(s => {
                     s.userLoggedIn = true;
                     s.userToken = result.data.data.CreateUser.token.token;

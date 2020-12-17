@@ -101,12 +101,12 @@ function Login() {
                                 </div>
                             )}
                             <Form.Group>
-                                <Form.Label for="email">Email</Form.Label>
+                                <Form.Label htmlFor="email">Email</Form.Label>
                                 <Form.Control type="email" onChange={handleEmailInput} value={email}
                                               placeholder="sample@uwec.edu"/>
                             </Form.Group>
                             <Form.Group>
-                                <Form.Label for="password">Password</Form.Label>
+                                <Form.Label htmlFor="password">Password</Form.Label>
                                 <Form.Control type="password" onChange={handlePasswordInput} value={password}
                                               placeholder="******"/>
                             </Form.Group>

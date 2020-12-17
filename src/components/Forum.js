@@ -71,7 +71,7 @@ function Forum() {
                 <Row>
 
                     {forumThreads && forumThreads.map((thread) => (
-                        <div>
+                        <div key={thread.id}>
                         <ForumThread tagline={thread.tagLine} name={thread.name} id={thread.id} key={thread.id}/>
                         </div>
                     ))}
