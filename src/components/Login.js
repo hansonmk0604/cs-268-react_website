@@ -14,7 +14,7 @@ function Login() {
     const [password, setPassword] = useState('')
     const [apiErr, setApiErr] = useState(false)
     const [apiErrMsg, setApiErrMsg] = useState('')
-    const userInfoState = useStoreState(UserInfo)
+    const userInfoState = UserInfo.useState()
 
     const handleAPIErrs = (error, message) => {
         setApiErr(error)

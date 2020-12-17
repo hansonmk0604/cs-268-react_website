@@ -6,7 +6,7 @@ import {UserInfo} from "./UserInfo";
 import { Redirect } from "react-router-dom";
 
 function CreateThreadPost(props) {
-  const userInfoState = useStoreState(UserInfo)
+  const userInfoState = UserInfo.useState()
   const [title, setTitle] = useState('')
   const [subject, setSubject] = useState('')
   const [content, setContent] = useState('')

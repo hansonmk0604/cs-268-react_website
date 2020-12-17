@@ -20,7 +20,7 @@ import './css/App.css';
 
 function App() {
         const [cookies, setCookie, removeCookie] = useCookies(['userToken']);
-        const userInfoState = useStoreState(UserInfo)
+        const userInfoState = UserInfo.useState()
         const loginWithCookie = () => {
                 axios.post('http://localhost:8080/query', {
                             query: `

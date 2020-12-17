@@ -7,7 +7,7 @@ import { Redirect } from "react-router-dom";
 import {useCookies} from "react-cookie";
 
 function ThreadPost(props) {
-    const userInfoState = useStoreState(UserInfo)
+    const userInfoState = UserInfo.useState()
     const [post, setPost] = useState()
     const [comments, setComments] = useState([])
     const [apiErr, setApiErr] = useState(false)

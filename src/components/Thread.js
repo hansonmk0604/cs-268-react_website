@@ -14,7 +14,7 @@ import axios from "axios";
 import ThreadPostCard from "./ThreadPostCard";
 
 function Thread(props) {
-    const userInfoState = useStoreState(UserInfo)
+    const userInfoState = UserInfo.useState()
     const [posts, setPosts] = useState([])
     const [apiErr, setApiErr] = useState(false)
     const [apiErrMsg, setApiErrMsg] = useState('')
