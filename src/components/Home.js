@@ -1,50 +1,43 @@
-import logo from "../logo.svg";
-import React, { Component } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
-import { useLocation } from "react-router-dom";
+import React from "react";
+import {Col, Container, Row} from 'react-bootstrap';
 
-import "../css/Home.css";
+import "../css/App.css";
 
-/* Have headers or just change text size with classNames for Col's */
-
-class Home extends React.Component
-{
-    constructor()
-    {
-        super();
-        this.state = {
-        from: "/"
-        }
-    }
-
-    render()
-    {
-        return (
-            <Container className = "container">
-                <Row className="headerRow" lg = "1">
-                    <Col>{<h2>Welcome to the</h2>}</Col>
-                    <Col>{<h1>University of Wisconsin Eau Claire</h1>}</Col>
-                    <Col>{<h2>Forum Page</h2>}</Col>
-                </Row>
-            </Container>
-        );
-    }
-}
-
-/*
-function Home()
-{
+function Home() {
     return (
-        <Container className = "container">
-            <Row className="headerRow" lg = "1">
-                <Col>{<h2>Welcome to the</h2>}</Col>
-                <Col>{<h1>University of Wisconsin Eau Claire</h1>}</Col>
-                <Col>{<h2>Forum Page</h2>}</Col>
+        <Container className="container">
+            <Row className="justify-content-md-center">
+                <Col>
+                    <h1 className='welcomeHeader'><b>Welcome to the University of Wisconsin Eau Claire Forum Page</b>
+                    </h1>
+                </Col>
+            </Row>
+            <Row className="justify-content-md-center">
+                <Col>
+                    <p className="introP">In this site, you can find help in the classes you are struggling with for
+                        this semester!
+                        Does not matter if that class pertains to your major or minor! You are able to access any forum
+                        thread
+                        and get assistance from those on the site that are taking the same class, or have taken it
+                        previously.</p>
+                    <p className="introP">Essentially, this site is like a stackoverflow forum site, but for UWEC
+                        classes!</p>
+                </Col>
+            </Row>
+            <Row className="justify-content-md-center">
+                <Col>
+                    <h3 className="welcomeHeader">How to get Started</h3>
+                    <ul>
+                        <li><p className="introP">Make an account with signup in the top right of your screen!
+                            Then, click on Forums for what class you need help with or want to help others with!</p>
+                        </li>
+                        <li><p className="introP">Check Out <a href={"https://www.uwec.edu/"} target={"_blank"} rel="noreferrer">UWEC</a>!</p></li>
+                        <li><p className="introP">Check Out UWEC <a href={"https://www.uwec.edu/academics/programs/"} target={"_blank"} rel="noreferrer">Academic Programs</a>!</p></li>
+                    </ul>
+                </Col>
             </Row>
         </Container>
     );
 }
-*/
-
 
 export default Home;

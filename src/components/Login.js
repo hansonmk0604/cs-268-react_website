@@ -1,116 +1,129 @@
-import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  Nav
-} from "react-bootstrap";
-import { useLocation, Redirect } from "react-router-dom";
+import React, {useState} from "react";
+import {Alert, Button, Col, Container, Form, Nav, Row} from "react-bootstrap";
+import {Redirect} from "react-router-dom";
+import axios from 'axios'
+import {useCookies} from "react-cookie";
+import {UserInfo} from "./UserInfo";
+import "../css/App.css";
 
-import "../css/Login.css";
+function Login() {
+    const [cookies, setCookie] = useCookies(['userToken']);
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [apiErr, setApiErr] = useState(false)
+    const [apiErrMsg, setApiErrMsg] = useState('')
+    const userInfoState = UserInfo.useState()
 
-class Login extends React.Component
-{
-  constructor()
-  {
-    super();
-    this.state = {
-      loggedIn: true
-    }
-  }
-
-  handleClick = (e) =>
-  {
-    e.preventDefault();
-
-    if (1 == 1)
-    {
-
-    }
-  }
-
-  render()
-  {
-    console.log(this.state.loggedIn);
-
-    if (this.state.loggedIn)
-    {
-      console.log("uh oh stinky");
-      <Redirect to = "/"/>
+    const handleAPIErrs = (error, message) => {
+        setApiErr(error)
+        setApiErrMsg(message)
     }
 
-    return (
-      <Container>
-        <Row className={"container"}>
-          <Col>
-            <Form>
-              <Form.Group>
-                <Form.Label for="email">Email</Form.Label>
-                <Form.Control type="email" placeholder="exampleEmail@uwec.edu" />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label for="password">Password</Form.Label>
-                <Form.Control type="password" placeholder="*******" />
-              </Form.Group>
-              <Button onClick = {this.handleClick} variant="primary" type="submit">
-                Login
-              </Button>
-            </Form>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Nav.Link href = "/signup">Don't have an account? Signup!</Nav.Link>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+    const handleEmailInput = e => {
+        e.preventDefault();
+        setEmail(e.target.value)
+    }
+
+    const handlePasswordInput = e => {
+        e.preventDefault();
+        setPassword(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const login = () => {
+            axios.post('http://localhost:8080/query', {
+                    query: `
+                mutation {
+                  Login(
+                    input: {
+                      email: "${email}"
+                      password: "${password}"
+                      token: ""
+                    }
+                  ) {
+                    userId
+                    email
+                    token {
+                      token
+                      expireDate
+                    }
+                    error {
+                      message
+                      code
+                      errors
+                    }
+                  }
+                }
+`
+                }
+            ).then((result) => {
+                if (!result.data.data.Login.error.errors) {
+                    UserInfo.update(s => {
+                        s.userLoggedIn = true;
+                        s.userToken = result.data.data.Login.token.token;
+                        s.userId = result.data.data.Login.userId;
+                        s.userEmail = result.data.data.Login.email;
+                    })
+                    setCookie('userToken', result.data.data.Login.token.token, {path: '/', sameSite: true})
+                } else {
+                    handleAPIErrs(result.data.data.Login.error.errors, result.data.data.Login.error.message)
+                }
+            }).catch(error => {
+                handleAPIErrs(true, error)
+            })
+        }
+        login()
+    }
+    if (userInfoState.userLoggedIn) {
+        return (
+            <Redirect to={'/forum'}/>
+        )
+    } else {
+        return (
+            <Container>
+                <Row className={"container"}>
+                    <Col>
+                        <Form>
+                            {apiErr && (
+                                <div>
+                                    <Alert variant="danger">
+                                        <Alert.Heading>Error when trying to log in!</Alert.Heading>
+                                        <Alert.Heading>{apiErrMsg}</Alert.Heading>
+                                        <p>
+                                            This typically means your username or password was incorrect. This could
+                                            also
+                                            be an issue on our end. If the errors persist and your information is
+                                            correct please
+                                            reach out.
+                                        </p>
+                                    </Alert>
+                                </div>
+                            )}
+                            <Form.Group>
+                                <Form.Label htmlFor="email">Email</Form.Label>
+                                <Form.Control type="email" onChange={handleEmailInput} value={email}
+                                              placeholder="sample@uwec.edu"/>
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label htmlFor="password">Password</Form.Label>
+                                <Form.Control type="password" onChange={handlePasswordInput} value={password}
+                                              placeholder="******"/>
+                            </Form.Group>
+                            <Button onClick={handleSubmit} variant="primary" type="submit">
+                                Login
+                            </Button>
+                        </Form>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Nav.Link href="/signup">Don't have an account? Signup!</Nav.Link>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    }
 }
-
-/*
-function handleSubmit(e)
-{
-  e.preventDefault();
-    if the user logs in correctly, we have a state for each variable of the user data
-    and also redirect them to the homepage after setting each state variable to what is in
-    the user account from the API.
-
-    else, we prompt them to enter correct information for login.
-}
-*/
-
-/*
-const Login = (props) => {
-  return (
-    <Container>
-      <Row className={"container"}>
-        <Col>
-          <Form>
-            <Form.Group>
-              <Form.Label for="email">Email</Form.Label>
-              <Form.Control type="email" placeholder="exampleEmail@uwec.edu" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label for="password">Password</Form.Label>
-              <Form.Control type="password" placeholder="*******" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Login
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Nav.Link href = "/signup">Don't have an account? Signup!</Nav.Link>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
-*/
 
 export default Login;

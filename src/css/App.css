@@ -1,38 +1,104 @@
-.App {
-  text-align: center;
+body {
+    background-color: #e3e3e3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, h4 {
+    font-family: Tahoma, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.h1-about {
+    font-family: Tahoma, sans-serif;
+    color: royalblue;
+    font-size: 5vw;
+    text-align: center;
+    padding-bottom: 3vh;
 }
 
-.App-link {
-  color: #61dafb;
+.h2-about, .h2-help {
+    font-family: Tahoma, sans-serif;
+    font-size: 3.5vw;
+    color: black;
+    text-align: center;
+    padding-bottom: 3vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.divCenter {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #444444;
+    text-align: center;
+    font-size: 1.6vw;
+    padding-bottom: 4vh;
+}
+
+img {
+    padding-bottom: 2vh;
+}
+
+.suliEmail, .mitchEmail
+{
+    text-align: center;
+}
+
+.ourName {
+    color: black;
+}
+
+.aboutUsCol, .creatorsCol {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2vw;
+    color: #444444;
+    text-align: center;
+}
+
+.aboutSuli, .aboutMitch {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #444444;
+    font-size: 1.6vw;
+}
+
+.suliImg, .mitchImg {
+    width: 50%;
+}
+
+.emails {
+    color: black;
+    font-size: 2vw;
+    margin-top: 3vh;
+}
+
+.welcomeHeader {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: royalblue;
+    font-size: 3.6vw;
+    text-align: center;
+    padding-bottom: 3vh;
+}
+
+.introP {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #444444;
+    font-size: 2.8vh;
+}
+
+.getStartHeader {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 4vw;
+    color: black;
+    text-align: center;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+.container {
+    padding-bottom: .8%;
+    padding-top: .8%;
+    flex-grow: 1;
+}
+
+.mr-auto {
+    color: white;
 }
