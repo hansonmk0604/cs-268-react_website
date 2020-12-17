@@ -179,7 +179,7 @@ function ThreadPost(props) {
 
     if (postLoaded) {
         return (
-            <Container className='container'>
+            <Container>
                 <Row>
                     <Col sm={12}>
                     <Card>

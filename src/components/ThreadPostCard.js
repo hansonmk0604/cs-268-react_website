@@ -31,7 +31,6 @@ function ThreadPostCard(props) {
                     <Card.Title>{props.title}</Card.Title>
                     <Button variant="primary" onClick={handleClick}>View Post</Button>
                 </Card.Body>
-                <Card.Footer className="text-muted">{props.id}</Card.Footer>
             </Card>
         )
     }

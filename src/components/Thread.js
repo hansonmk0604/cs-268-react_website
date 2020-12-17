@@ -12,6 +12,7 @@ import {useStoreState} from "pullstate";
 import {UserInfo} from "./UserInfo";
 import axios from "axios";
 import ThreadPostCard from "./ThreadPostCard";
+import "../css/Thread.css";
 
 function Thread(props) {
     const userInfoState = UserInfo.useState()
